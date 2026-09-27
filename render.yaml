@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: prosen-delivery
+    env: node
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: PUBLIC_APP_URL
+        sync: false
